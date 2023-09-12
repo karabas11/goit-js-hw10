@@ -5,7 +5,7 @@ const search = '/images/search';
 
 const keyApi = {
   headers: {
-    'x-api-key' : 'live_iNW5yRLQPuv27Qr1jI2atPHfmiX6QreVO2mkLHdj85XCpEeqizfV0zZCMXPsrFAk',
+    'x-api-key' : 'live_UNQrAA8S5yhly2M85Wjkvc81hkD3mFwAPuzBrQxyOesBqFSHpuzamL3btxsP7uhn',
   }
 };
 

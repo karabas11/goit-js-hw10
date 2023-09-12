@@ -9,30 +9,21 @@ const refs ={
   container: document.querySelector('.cat-info'),
   loader: document.querySelector('.loader'),
   error:  document.querySelector('.error'),
-  click: document.querySelector('.click'),
 }
 
-refs.loader.classList.add('js-hidden');
+
 refs.error.classList.add('js-hidden');
 refs.select.classList.add('js-hidden');
 
 Notiflix.Block.arrows('.loader');
 
-document.addEventListener('click', onSelection);
+fetchBreeds().then((data) => {
+  refs.loader.classList.add('js-hidden');
+  refs.select.classList.remove('js-hidden');
 
-function onSelection(){
-  refs.loader.classList.remove('js-hidden');
-
-  fetchBreeds().then((data) => {
-    refs.loader.classList.add('js-hidden');
-    refs.select.classList.remove('js-hidden');
-    refs.click.classList.add('js-hidden');
-
-    document.removeEventListener('click', onSelection)
-    return refs.select.insertAdjacentHTML('beforeend',createSelectOption(data));
-  })
-  .catch(catchError);
-};
+  return refs.select.insertAdjacentHTML('beforeend',createSelectOption(data));
+})
+.catch(catchError);
 
 refs.select.addEventListener('change', onCatBreedSelection);
 
